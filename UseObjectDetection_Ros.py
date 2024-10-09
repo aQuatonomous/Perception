@@ -8,7 +8,7 @@ Created on Wed Oct  2 12:55:40 2024
 import torch
 import cv2
 import numpy as np
-import matplotlib.pyplot as plt
+
 
 from imutils.video import VideoStream
 from imutils.video import FPS
@@ -33,7 +33,12 @@ def image_callback(msg):
     img = cv2.imread(msg) 
     results = model(img) #Run Object Detection Model
     
-    pub.publish(results.pandas().xyxy[0]) #publish the results
+    
+    Bouys = results.pandas().xyxy[0]
+    
+    #Add any required data manipulation here to have the right configuration for the next node.
+    
+    pub.publish(Bouys) #publish the results
 
 
 def talker():
