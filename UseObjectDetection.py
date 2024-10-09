@@ -10,6 +10,11 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
+#import rospy
+#import BuoyDetection.msg
+
+
+
 
 #Get the model weights and load in the object detection model
 WeightsPath = "ModelWeights.pt"
@@ -17,8 +22,11 @@ model = torch.hub.load('YoloModel', 'custom', path= WeightsPath, source='local')
 
 
 
+
+
+
 #get the Image file
-JPGImage = 'images/_ZED2i_2023-03-23-10_38_09-370777_png.rf.e92d4698f76813896744e8d3d18283a4.jpg'                  
+JPGImage = 'images/_ZED2i_2023-03-23-10_41_13-750677_png.rf.524ff861d544a094ec098d4576420f1e.jpg'                  
                   
 #Open the image     
 img = cv2.imread(JPGImage) 
