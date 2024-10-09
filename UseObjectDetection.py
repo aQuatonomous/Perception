@@ -10,26 +10,31 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
+
+#Get the model weights and load in the object detection model
 WeightsPath = "ModelWeights.pt"
+model = torch.hub.load('YoloModel', 'custom', path= WeightsPath, source='local') 
 
-test1 = 'images/_ZED2i_2023-03-23-10_38_09-370777_png.rf.e92d4698f76813896744e8d3d18283a4.jpg'
 
 
-model = torch.hub.load('', 'custom', path= WeightsPath, source='local') 
-                       
-                       
-                       
-img = cv2.imread(test1) 
+#get the Image file
+JPGImage = 'images/_ZED2i_2023-03-23-10_38_09-370777_png.rf.e92d4698f76813896744e8d3d18283a4.jpg'                  
+                  
+#Open the image     
+img = cv2.imread(JPGImage) 
 
+
+#Show the image
 plt.imshow(img)
 plt.show()
 
+#run the model on the image
 results = model(img)
 
-# Results
+# Results of the model
 results.print()  
 results.show()  # or .show()
 
 
 
-print(results.pandas().xyxy[0])
+print(results.pandas().xyxy[0]) #get data from results
