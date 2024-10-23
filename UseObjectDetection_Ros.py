@@ -10,9 +10,6 @@ import cv2
 import numpy as np
 
 
-from imutils.video import VideoStream
-from imutils.video import FPS
-
 import rospy
 import BuoyDetection.msg
 from std_msgs.msg import String
